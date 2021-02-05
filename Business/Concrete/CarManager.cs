@@ -23,6 +23,8 @@ namespace Business.Concrete
             {
                 Console.WriteLine(car.Id + " id'sine sahip arabanız eklendi!");
             }
+            else
+                Console.WriteLine("Araba ismi 2 harften fazla ve arabanın günlük fiyatı 0'dan farklı olmalıdır.");
         }
         public void Delete(Car car)
         {
