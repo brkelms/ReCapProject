@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +19,10 @@ namespace Business.Concrete
         }
         public void Add(Car car)
         {
-            Console.WriteLine(car.Id + " id'sine sahip arabanız eklendi!");
+            if ((car.CarName.Length > 2) && (car.DailyPrice > 0))
+            {
+                Console.WriteLine(car.Id + " id'sine sahip arabanız eklendi!");
+            }
         }
         public void Delete(Car car)
         {
@@ -27,13 +32,28 @@ namespace Business.Concrete
         {
             return car.GetAll();
         }
+
         public List<Car> GetById(int Id)
         {
-            return car.GetById(Id);
+            throw new NotImplementedException();
         }
+        //public List<Car> GetById(int Id)
+        //{
+        //   // return car.GetById(Id);
+        //}
         public void Update(Car car)
         {
             Console.WriteLine(car.Id + " id'sine sahip arabanın özellikleri güncellendi!");
+        }
+
+        List<Car> IProductCarSevice.GetCarsByBrandId(int Id)
+        {
+            return car.GetAll(c => c.BrandId == Id);
+        }
+
+        List<Car> IProductCarSevice.GetCarsByColorId(int Id)
+        {
+            return car.GetAll(c => c.ColorId == Id);
         }
     }
 }
