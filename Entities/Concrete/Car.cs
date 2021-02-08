@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,10 +14,5 @@ namespace Entities.Concrete
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
         public string CarName { get; set; }
-
-        public static List<Car> GetAll(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Entities.Concrete;
+﻿using Core.DataAccess;
+using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +9,7 @@ namespace DataAccess.Abstract
 {
     public interface IProductCarDal:IEntityRepository<Car>
     {
-        //List<Car> GetAll();
-        //List<Car> GetById(int Id);
-        //void Add(Car car);
-        //void Delete(Car car);
-        //void Update(Car car);
-
+        List<CarDetailDto> GetProductDetails();
 
     }
 }
