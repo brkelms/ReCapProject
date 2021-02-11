@@ -13,7 +13,7 @@ namespace ConsoleUI
         {
             
                 CarManager carManager = new CarManager(new EfCarDal());
-                foreach (var cars in carManager.GetProductDetails())
+                foreach (var cars in carManager.GetCarDetails().Data)
                 {
                     Console.WriteLine(cars.CarName + "/" + cars.BrandName+"/"+cars.ColorName+"/"+cars.DailyPrice);
                 }
@@ -25,7 +25,7 @@ namespace ConsoleUI
         private static void GosterTest()
         {
             CarManager carManager = new CarManager(new InMemoryProductCarDal());
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Id + " " + car.BrandId + " " + car.ColorId + " " + car.ModelYear + " " + car.DailyPrice + " " + car.Description);
                 Console.WriteLine("-----------------------------------------------------------------------------------------");
@@ -36,7 +36,7 @@ namespace ConsoleUI
         {
             CarManager carManager1 = new CarManager(new EfCarDal());
             carManager1.Add(new Car { BrandId = 1, ColorId = 3, CarName = "Fiat Linea", ModelYear = 2018, DailyPrice = 100, Description = "Bu yeni eklediğim bir Fiat Linea" });
-            foreach (var car in carManager1.GetAll())
+            foreach (var car in carManager1.GetAll().Data)
             {
                 Console.WriteLine(car.Id + " " + car.BrandId + " " + car.CarName + " " + car.ColorId + " " + car.DailyPrice + " " + car.Description);
             }
