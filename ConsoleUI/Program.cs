@@ -11,15 +11,23 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            
-                CarManager carManager = new CarManager(new EfCarDal());
-                foreach (var cars in carManager.GetCarDetails().Data)
-                {
-                    Console.WriteLine(cars.CarName + "/" + cars.BrandName+"/"+cars.ColorName+"/"+cars.DailyPrice);
-                }
-            
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            foreach (var kiralamalar in rentalManager.GetAll().Data)
+            {
+                Console.WriteLine(kiralamalar.RentalId+ " / "+kiralamalar.CustomerId + " / " + kiralamalar.CarId + " / " + kiralamalar.RentDate+" / "+kiralamalar.ReturnDate.ToString() );
+            }
+            //ArabaDetaylarınıGöster();
             //GosterTest();
-            //EklemeTest();
+           //EklemeTest();
+        }
+
+        private static void ArabaDetaylarınıGöster()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var cars in carManager.GetCarDetails().Data)
+            {
+                Console.WriteLine(cars.CarName + "/" + cars.BrandName + "/" + cars.ColorName + "/" + cars.DailyPrice);
+            }
         }
 
         private static void GosterTest()
@@ -35,7 +43,7 @@ namespace ConsoleUI
         private static void EklemeTest()
         {
             CarManager carManager1 = new CarManager(new EfCarDal());
-            carManager1.Add(new Car { BrandId = 1, ColorId = 3, CarName = "Fiat Linea", ModelYear = 2018, DailyPrice = 100, Description = "Bu yeni eklediğim bir Fiat Linea" });
+            carManager1.Add(new Car { BrandId = 1, ColorId = 2, CarName = "Fiat Sedan", ModelYear = 2015, DailyPrice = 60, Description = "Bu yeni eklediğim bir Fiat Sedan" });
             foreach (var car in carManager1.GetAll().Data)
             {
                 Console.WriteLine(car.Id + " " + car.BrandId + " " + car.CarName + " " + car.ColorId + " " + car.DailyPrice + " " + car.Description);
