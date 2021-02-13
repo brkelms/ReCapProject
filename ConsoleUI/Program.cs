@@ -14,7 +14,7 @@ namespace ConsoleUI
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             foreach (var kiralamalar in rentalManager.GetAll().Data)
             {
-                Console.WriteLine(kiralamalar.RentalId+ " / "+kiralamalar.CustomerId + " / " + kiralamalar.CarId + " / " + kiralamalar.RentDate+" / "+kiralamalar.ReturnDate.ToString() );
+                Console.WriteLine(kiralamalar.RentalId+ " / "+kiralamalar.CustomerId + " / " + kiralamalar.CarId + " / " + kiralamalar.RentDate+" / "+kiralamalar.ReturnDate );
             }
             //ArabaDetaylarınıGöster();
             //GosterTest();
