@@ -11,19 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandsController : ControllerBase
+    public class CarImagesController : ControllerBase
     {
-        IBrandService _brandService;
+        ICarImageService _carImageService;
 
-        public BrandsController(IBrandService brandService)
+        public CarImagesController(ICarImageService carImageService)
         {
-            _brandService = brandService;
+            _carImageService = carImageService;
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Brand brand)
+        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
-            var result = _brandService.Add(brand);
+            var result = _carImageService.Add(file, carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -31,41 +31,39 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpDelete("delete")]
-        public IActionResult Delete(Brand brand)
+        public IActionResult Delete(CarImage carImage)
         {
-            var result = _brandService.Delete(brand);
+            var result = _carImageService.Delete(carImage);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
         [HttpPut("update")]
-        public IActionResult Update(Brand brand)
+        public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
-            var result = _brandService.Update(brand);
+            var result = _carImageService.Update(file, carImage);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _brandService.GetAll();
+            var result = _carImageService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("getallbycarid")]
         public IActionResult GetById(int id)
         {
-            var result = _brandService.GetById(id);
+            var result = _carImageService.GetAllByCarId(id);
             if (result.Success)
             {
                 return Ok(result);

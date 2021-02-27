@@ -31,6 +31,11 @@ namespace Business.Constants
         public static string CustomerDeleted = "Müşteri silindi";
         public static string CustomerUpdated = "Müşteri güncellendi";
 
+        public static string ImageAdded = "Yeni resim eklendi";
+        public static string ImageDeleted = "Resim silindi";
+        public static string ImageUpdated = "Resim güncellendi";
+        public static string ImageLimitExceded = "5 Resimden fazla yükleme yapılamaz";
+
         public static string UserAdded = "Yeni kullanıcı eklendi";
         public static string UsersListed = "Mevcut kullanıcılar listelendi";
         public static string UserDeleted = "Kullanıcı silindi";
