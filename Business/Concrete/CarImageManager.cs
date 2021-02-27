@@ -53,12 +53,12 @@ namespace Business.Concrete
         }
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId)); 
+            IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));
             if (result != null)
             {
                 return result;
             }
-            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.ImageId == carImage.ImageId).ImagePath, file);
+            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.CarImageId == carImage.CarImageId).ImagePath, file);
             carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult(Messages.ImageUpdated);
@@ -83,7 +83,7 @@ namespace Business.Concrete
             else
                 return result;
 
-           
+
         }
     }
 }
