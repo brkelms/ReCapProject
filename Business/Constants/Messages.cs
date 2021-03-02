@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -48,5 +49,6 @@ namespace Business.Constants
         public static string RentalCarNotAvailable = "Kiralanmak istenen araç bir başkasına hizmet vermekte";
 
         public static string MaintenanceTime = "Sistem Bakımda";
+        public static string AuthorizationDenied = "Doğrulanamadı";
     }
 }

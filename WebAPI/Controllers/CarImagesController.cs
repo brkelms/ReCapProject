@@ -20,19 +20,22 @@ namespace WebAPI.Controllers
             _carImageService = carImageService;
         }
 
+        
         [HttpPost("add")]
         public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
+            
             var result = _carImageService.Add(file, carImage);
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
+            return BadRequest(result);   
         }
         [HttpDelete("delete")]
-        public IActionResult Delete(CarImage carImage)
+        public IActionResult Delete([FromForm(Name = ("Id"))] int Id)
         {
+            var carImage = _carImageService.Get(Id).Data;
             var result = _carImageService.Delete(carImage);
             if (result.Success)
             {

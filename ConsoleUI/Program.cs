@@ -11,14 +11,20 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            
+            //RentalMethod();
+            //ArabaDetaylarınıGöster();
+            //GosterTest();
+            //EklemeTest();
+        }
+
+        private static void RentalMethod()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             foreach (var kiralamalar in rentalManager.GetAll().Data)
             {
-                Console.WriteLine(kiralamalar.RentalId+ " / "+kiralamalar.CustomerId + " / " + kiralamalar.CarId + " / " + kiralamalar.RentDate+" / "+kiralamalar.ReturnDate );
+                Console.WriteLine(kiralamalar.RentalId + " / " + kiralamalar.CustomerId + " / " + kiralamalar.CarId + " / " + kiralamalar.RentDate + " / " + kiralamalar.ReturnDate);
             }
-            //ArabaDetaylarınıGöster();
-            //GosterTest();
-           //EklemeTest();
         }
 
         private static void ArabaDetaylarınıGöster()
