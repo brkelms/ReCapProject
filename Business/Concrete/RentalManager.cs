@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,9 +19,10 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
+        [CacheRemoveAspect("IRentalService.Get")]
         public IResult Add(Rental rental)
         {
-            //Burası için bir kural var..!!!!
+            
             foreach (var kiralamalar in _rentalDal.GetAll())
             {
                 if ((kiralamalar.CarId == rental.CarId) && kiralamalar.ReturnDate == null)
@@ -37,7 +39,7 @@ namespace Business.Concrete
             _rentalDal.Delete(rental);
             return new SuccessResult(Messages.RentalDeleted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalsListed);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
@@ -41,6 +42,10 @@ namespace Business.Constants
         public static string UsersListed = "Mevcut kullanıcılar listelendi";
         public static string UserDeleted = "Kullanıcı silindi";
         public static string UserUpdated = "Kullanıcı güncellendi";
+        public static string UserAvailable = "Kullanıcı mevcut";
+        public static string UserRegistered = "Kullanıcı kayıt oldu";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string PasswordError = "Parola hatası";
 
         public static string RentalAdded = "Yeni kiralama eklendi";
         public static string RentalsListed = "Mevcut kiralamalar listelendi";
@@ -49,6 +54,7 @@ namespace Business.Constants
         public static string RentalCarNotAvailable = "Kiralanmak istenen araç bir başkasına hizmet vermekte";
 
         public static string MaintenanceTime = "Sistem Bakımda";
-        public static string AuthorizationDenied = "Doğrulanamadı";
+        public static string AuthorizationDenied = "Yetki yok";
+        public static string TokenCreated="Token oluşturuldu";
     }
 }
