@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carDelete = cars.SingleOrDefault(c=>c.Id==car.Id);
+            Car carDelete = cars.SingleOrDefault(c=>c.Id == car.Id);
             cars.Remove(carDelete);
         }
 
@@ -47,9 +47,40 @@ namespace DataAccess.Concrete.InMemory
         {
             throw new NotImplementedException();
         }
+
+        public List<CarDetailDtoLarge> GetAlls(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDtoLarge> GetAlls(object p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDtoLarge> GetAlls(Expression<Func<CarDetailDtoLarge, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetById(int Id)
         {
-            return cars = cars.Where(c=> c.Id==Id).ToList();
+            return cars = cars.Where(c=> c.Id == Id).ToList();
+        }
+
+        public List<CarDetailDtoLarge> GetCarsByBrandId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDtoLarge> GetCarsDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDtoLarge> GetCarsLargeByBrandId(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<CarDetailDto> GetProductDetails()
@@ -59,7 +90,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Update(Car car)
         {
-            Car carUpdate = cars.SingleOrDefault(c=> c.Id==car.Id);
+            Car carUpdate = cars.SingleOrDefault(c=> c.Id == car.Id);
             carUpdate.BrandId = car.BrandId;
             carUpdate.ColorId = car.ColorId;
             carUpdate.ModelYear = car.ModelYear;

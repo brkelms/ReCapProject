@@ -3,6 +3,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Abstract
@@ -10,5 +11,8 @@ namespace DataAccess.Abstract
     public interface IProductCarDal:IEntityRepository<Car>
     {
         List<CarDetailDto> GetProductDetails();
+        List<CarDetailDtoLarge> GetCarsDetails();
+        List<CarDetailDtoLarge> GetAlls(int brandId);
+
     }
 }
