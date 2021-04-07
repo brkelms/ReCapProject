@@ -59,7 +59,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = (short)c.DailyPrice,
                                  Description = c.Description,
                                  ModelYear = c.ModelYear,
-                                 ImagePath = ci.ImagePath
+                                 ImagePath = ci.ImagePath,
+                                 Findex = c.Findex
                              };
                 return result.ToList();
             }
@@ -91,7 +92,79 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = (short)c.DailyPrice,
                                  Description = c.Description,
                                  ModelYear = c.ModelYear,
-                                 ImagePath = ci.ImagePath
+                                 ImagePath = ci.ImagePath,
+                                 Findex = c.Findex
+                             };
+
+
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDtoLarge> GetCAll(int colorId)
+        {
+            using (DatamContext context = new DatamContext())
+            {
+                var result = from c in context.Cars
+                             join b in context.Brands
+                             on c.BrandId equals b.BrandId
+
+                             join co in context.Colors
+                             on c.ColorId equals co.ColorId
+
+                             join ci in context.CarImages
+                             on c.Id equals ci.CarId
+
+                             where co.ColorId == colorId
+
+                             select new CarDetailDtoLarge
+                             {
+                                 CarId = c.Id,
+                                 CarName = c.CarName,
+                                 BrandId = b.BrandId,
+                                 BrandName = b.BrandName,
+                                 ColorId = co.ColorId,
+                                 ColorName = co.ColorName,
+                                 DailyPrice = (short)c.DailyPrice,
+                                 Description = c.Description,
+                                 ModelYear = c.ModelYear,
+                                 ImagePath = ci.ImagePath,
+                                 Findex = c.Findex
+                             };
+
+
+                return result.ToList();
+            }
+        }
+        public List<CarDetailDtoLarge> GetCarAll(int carId)
+        {
+            using (DatamContext context = new DatamContext())
+            {
+                var result = from c in context.Cars
+                             join b in context.Brands
+                             on c.BrandId equals b.BrandId
+
+                             join co in context.Colors
+                             on c.ColorId equals co.ColorId
+
+                             join ci in context.CarImages
+                             on c.Id equals ci.CarId
+
+                             where c.Id == carId
+
+                             select new CarDetailDtoLarge
+                             {
+                                 CarId = c.Id,
+                                 CarName = c.CarName,
+                                 BrandId = b.BrandId,
+                                 BrandName = b.BrandName,
+                                 ColorId = co.ColorId,
+                                 ColorName = co.ColorName,
+                                 DailyPrice = (short)c.DailyPrice,
+                                 Description = c.Description,
+                                 ModelYear = c.ModelYear,
+                                 ImagePath = ci.ImagePath,
+                                 Findex = c.Findex
                              };
 
 

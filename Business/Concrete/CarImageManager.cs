@@ -26,8 +26,8 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
-        [SecuredOperation("carImage.add,user")]
-        [CacheRemoveAspect("ICarImageService.Get")]
+       // [SecuredOperation("carImage.add,user")]
+       // [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));

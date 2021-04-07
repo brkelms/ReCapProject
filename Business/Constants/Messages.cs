@@ -55,6 +55,6 @@ namespace Business.Constants
 
         public static string MaintenanceTime = "Sistem Bakımda";
         public static string AuthorizationDenied = "Yetki yok";
-        public static string TokenCreated="Token oluşturuldu";
+        public static string TokenCreated="Giriş yapıldı";
     }
 }

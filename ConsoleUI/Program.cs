@@ -12,7 +12,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             
-            //RentalMethod();
+            RentalMethod();
             //ArabaDetaylarınıGöster();
             //GosterTest();
             //EklemeTest();

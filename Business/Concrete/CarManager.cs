@@ -73,5 +73,14 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDtoLarge>>(_carDal.GetAlls(id));
         }
+        public IDataResult<List<CarDetailDtoLarge>> GetCarsLargeByColorId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDtoLarge>>(_carDal.GetCAll(id));
+        }
+
+        public IDataResult<List<CarDetailDtoLarge>> GetCarsLargeByCarId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDtoLarge>>(_carDal.GetCarAll(id));
+        }
     }
 }
